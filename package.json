@@ -1,7 +1,7 @@
 {
   "name": "annafhack",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mental Health First Aid App for Children, Young People and Teachers",
   "main": "index.js",
   "scripts": {
     "format": "standard-format --write",
@@ -15,6 +15,7 @@
   "keywords": [
     "mental",
     "health",
+    "first aid",
     "cyp",
     "iapt"
   ],
