@@ -4,7 +4,6 @@ import { Link } from 'react-router'
 
 const styles = {
   textAlign: 'center',
-  margin: '4em auto'
 }
 const repoLink = 'https://github.com/foundersandcoders'
 
@@ -14,15 +13,51 @@ export default (props) => {
       <Row>
         <Col xs={12}>
           <h3>Learn</h3>
-          <ul><li><Link to="anxiety">
-          10 Things To Know About Anxiety
-          </Link></li><li><Link to="depression">
-          10 Things To Know About Depression
-          </Link></li><li><Link to="self-harm">
-          10 Things To Know About Self Harm
-          </Link></li><li><Link to="behaviour">
-          10 Things To Know About Behaviour
-          </Link></li></ul>
+
+          <Link to="anxiety">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                10 Things To Know About Anxiety
+              </div>
+              <div className="panel-body">
+                Ten things you should know about anxiety to help you help your students
+              </div>
+            </div>
+          </Link>
+
+          <Link to="behaviour">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                10 Things To Know About Behaviour
+              </div>
+              <div className="panel-body">
+                Ten things you should know about behaviour to help you help your students
+              </div>
+            </div>
+          </Link>
+
+          <Link to="depression">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                10 Things To Know About Depression
+              </div>
+              <div className="panel-body">
+                Ten things you should know about depression to help you help your students
+              </div>
+            </div>
+          </Link>
+
+          <Link to="self-harm">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                10 Things To Know About Self Harm
+              </div>
+              <div className="panel-body">
+                Ten things you should know about self harm to help you help your students
+              </div>
+            </div>
+          </Link>
+
         </Col>
       </Row>
     </Grid>
