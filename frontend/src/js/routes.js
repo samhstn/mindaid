@@ -7,6 +7,11 @@ import About from './components/About/index.js'
 import Contact from './components/Contact/index.js'
 import Screening from './components/Screening/index.js'
 import Talk from './components/Talk/index.js'
+import Learn from './components/Learn/index.js'
+import Anxiety from './components/Anxiety/index.js'
+import Behaviour from './components/Behaviour/index.js'
+import Depression from './components/Depression/index.js'
+import SelfHarm from './components/SelfHarm/index.js'
 
 export default (
   <Route path='/' component={App}>
@@ -15,5 +20,10 @@ export default (
     <Route path='/contact' component={Contact} />
     <Route path='/screening' component={Screening} />
     <Route path='/talk' component={Talk} />
+    <Route path='/learn' component={Learn} />
+    <Route path='/anxiety' component={Anxiety} />
+    <Route path='/behaviour' component={Behaviour} />
+    <Route path='/depression' component={Depression} />
+    <Route path='/self-harm' component={SelfHarm} />
   </Route>
 )
