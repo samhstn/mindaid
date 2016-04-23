@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   path: '/{filename}.js',
   method: 'GET',
   handler: (response, reply) => {

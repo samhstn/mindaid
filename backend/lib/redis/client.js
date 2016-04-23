@@ -1,17 +1,11 @@
-const redis = require('redis')
-const bluebird = require('bluebird')
+import redis from 'redis'
 
-bluebird.promisifyAll(redis.RedisClient.prototype)
-bluebird.promisifyAll(redis.Multi.prototype)
+const DB_URL = process.env.REDIS_URL || 'redis://localhost:6379'
+const DB_NUM = process.env.REDIS_DB || 0
+const client = redis.createClient(DB_URL)
 
-module.exports = (opts) => {
+client.select(DB_NUM, () => {
+  console.log('Connected to Redis database num ', DB_NUM, ' on ', DB_URL)
+})
 
-  const config = {
-    url: process.env.REDIS_URL || 'redis://localhost:6379',
-    db: process.env.REDIS_DB || 0
-  }
-
-  if (opts && opts.env === 'TEST') config.db = 5
-
-  return redis.createClient(config)
-}
+export default client

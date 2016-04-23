@@ -4,6 +4,10 @@
   height: $header-height;
 }
 
+.home {
+  text-align: center;
+}
+
 .navbar {
   margin-bottom: 0;
 }
@@ -59,12 +63,6 @@
   }
 }
 
-.user-logged-in {
-  position: absolute;
-  margin-top: 15px;
-  color: $grey-blue;
-}
-
 // footer
 
 .footer {
@@ -87,7 +85,7 @@
   }
 
   p {
-    margin: 2em 1.5em;
+    margin: 2em 0;
     color: #fff;
   }
 
