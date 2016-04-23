@@ -1,16 +1,21 @@
-import server from '../server.js'
+require('env2')('config.env')
 
-export const handlePlugins = (err) => {
+const handlePlugins = (err) => {
   if (err) {
     console.log('plugins error: ', err)
     throw err
   }
 }
 
-export const handleStart = (err) => {
+const handleStart = (err) => {
   if (err) {
     console.log('server error: ', err)
   } else {
-    console.log('server listening on port: ' + server.info.port)
+    console.log('server listening on port: ', process.env.PORT)
   }
+}
+
+module.exports = {
+  handlePlugins: handlePlugins,
+  handleStart: handleStart
 }

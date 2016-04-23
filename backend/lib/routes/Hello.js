@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   path: '/hello',
   method: 'GET',
   handler: (request, reply) => {
