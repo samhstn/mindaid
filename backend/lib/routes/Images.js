@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   path: '/img/{imageUrl*}',
   method: 'GET',
   handler: {

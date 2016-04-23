@@ -1,34 +1,25 @@
 {
-  "name": "MindAid",
+  "name": "hackathon-boilerplate",
   "version": "1.0.0",
-  "description": "Mental Health First Aid App for Children, Young People and Teachers",
+  "description": "Some boilerplate to get us off to a quick start at hackathons",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon backend/lib/index.js",
+    "nodemon": "nodemon backend/lib/server.js --exec babel-node --presets es2015,stage-1",
+    "server-build": "babel backend/lib -d backend/dist --presets es2015,stage-1",
+    "production-serve": "node backend/dist/server.js",
     "dev": "webpack-dev-server --hot --inline --content-base public/",
-    "watch": "webpack --watch --progress",
-    "prestart": "npm run server-build && webpack --progress --config webpack.config.js",
-    "start": "node ./backend/lib/index.js",
-    "pretest": "npm run server-build",
-    "test": "node ./backend/lib/tests/runner.js"
+    "watch": "webpack --watch --progress"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shouston3/annafhack.git"
+    "url": "git+https://github.com/andrewMacmurray/hackathon-boilerplate.git"
   },
-  "keywords": [
-    "mental",
-    "health",
-    "first aid",
-    "cyp",
-    "iapt"
-  ],
   "author": "FAC7",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shouston3/annafhack/issues"
+    "url": "https://github.com/andrewMacmurray/hackathon-boilerplate/issues"
   },
-  "homepage": "https://github.com/shouston3/annafhack#readme",
+  "homepage": "https://github.com/andrewMacmurray/hackathon-boilerplate#readme",
   "devDependencies": {
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",

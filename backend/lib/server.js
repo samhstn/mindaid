@@ -1,44 +1,28 @@
 require('env2')('./config.env')
 
-const Hapi = require('hapi')
+import Hapi from 'hapi'
+const server = new Hapi.Server()
+const port = process.env.PORT || 4000
 
 // helper methods
-const handlePlugins = require('./helpers/server-helpers.js')
+import { handlePlugins, handleStart } from './helpers/server-helpers.js'
 
 // server plugins
-const Inert = require('inert')
-const Bell = require('bell')
-const AuthCookie = require('hapi-auth-cookie')
+import Inert from 'inert'
 
 // server routes
-const Hello = require('./routes/Hello.js')
-const Images = require('./routes/Images.js')
-const ReactUrls = require('./routes/ReactUrls.js')
-const Scripts = require('./routes/Scripts.js')
-const Login = require('./routes/Login.js')
-const UserRequest = require('./routes/TwitterUserRequest.js')
+import Hello from './routes/Hello.js'
+import Images from './routes/Images.js'
+import ReactUrls from './routes/ReactUrls.js'
+import Scripts from './routes/Scripts.js'
 
-// auth strategies
-const authStrategies = require('./authStrategies/twitterAuthStrategies.js')
+const ConnectionSettings = { port, routes: {cors: true} }
+const Plugins = [ Inert ]
+const Routes = [ Hello, Images, ReactUrls, Scripts ]
 
-const Plugins = [ Inert, Bell, AuthCookie ]
-const Routes = [ Login, Images, ReactUrls, Scripts, Hello, UserRequest ]
+server.connection(ConnectionSettings)
+server.register(Plugins, handlePlugins)
+server.route(Routes)
+server.start(handleStart)
 
-module.exports = (client) => {
-
-  const server = new Hapi.Server()
-
-  server.connection({
-    port: process.env.PORT || 4000,
-    routes: {
-      cors: true
-    }
-  })
-
-  server.register(Plugins, handlePlugins)
-  server.auth.strategy('twitter', 'bell', authStrategies.TwitterOauth)
-  server.auth.strategy('session', 'cookie', authStrategies.TwitterCookie)
-  server.route(Routes)
-
-  return server
-}
+export default server
