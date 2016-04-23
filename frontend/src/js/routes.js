@@ -12,6 +12,8 @@ import Anxiety from './components/Anxiety/index.js'
 import Behaviour from './components/Behaviour/index.js'
 import Depression from './components/Depression/index.js'
 import SelfHarm from './components/SelfHarm/index.js'
+import Refer from './components/Refer/index.js'
+import Remind from './components/Remind/index.js'
 
 export default (
   <Route path='/' component={App}>
@@ -25,5 +27,7 @@ export default (
     <Route path='/behaviour' component={Behaviour} />
     <Route path='/depression' component={Depression} />
     <Route path='/self-harm' component={SelfHarm} />
+    <Route path='/refer' component={Refer} />
+    <Route path='/remind' component={Remind} />
   </Route>
 )
