@@ -1,0 +1,36 @@
+{
+  "name": "annafhack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "standard-format --write",
+    "lint": "standard",
+    "test": "tape 'tests/**/*.js' | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shouston3/annafhack.git"
+  },
+  "keywords": [
+    "mental",
+    "health",
+    "cyp",
+    "iapt"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shouston3/annafhack/issues"
+  },
+  "homepage": "https://github.com/shouston3/annafhack#readme",
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "standard": "^6.0.8",
+    "standard-format": "^2.1.1",
+    "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "react": "^15.0.1"
+  }
+}
