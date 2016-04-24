@@ -4,7 +4,7 @@
   "description": "Some boilerplate to get us off to a quick start at hackathons",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon backend/lib/server.js",
+    "start": "nodemon backend/lib/server.js",
     "server-build": "babel backend/lib -d backend/dist --presets es2015,stage-1",
     "production-serve": "node backend/dist/server.js",
     "dev": "webpack-dev-server --hot --inline --content-base public/",

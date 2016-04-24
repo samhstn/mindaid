@@ -3,7 +3,6 @@ import { Grid, Row, Col } from 'react-bootstrap'
 
 const styles = {
   textAlign: 'center',
-  margin: '4em auto'
 }
 const repoLink = 'https://github.com/foundersandcoders'
 
@@ -13,16 +12,16 @@ export default (props) => {
       <Row>
         <Col xs={12}>
           <h3>Talk</h3>
-          <ul><li>
-          A ssess for risk of suicide or harm
+          <ul style={{textAlign: 'left'}}><li>
+          <strong>A</strong>ssess for risk of suicide or harm
           </li><li>
-          L isten nonjudgmentally
+          <strong>L</strong>isten nonjudgmentally
           </li><li>
-          G ive reassurance and information
+          <strong>G</strong>ive reassurance and information
           </li><li>
-          E ncourage appropriate professional help
+          <strong>E</strong>ncourage appropriate professional help
           </li><li>
-          E ncourage self-help and other support strategies
+          <strong>E</strong>ncourage self-help and other support strategies
           </li></ul>
         </Col>
       </Row>
