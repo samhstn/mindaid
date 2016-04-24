@@ -1,6 +1,7 @@
 import React from 'react'
 import {OverlayTrigger, Modal, Row, Col, Grid, Button} from 'react-bootstrap'
 import Question from './Question.js'
+import axios from 'axios'
 
 export default class Screening extends React.Component {
 
@@ -54,6 +55,18 @@ export default class Screening extends React.Component {
     console.log(this.state.score);
   }
 
+  sendMessage () {
+  	axios.post('/sendText', {
+      recipient: '00447enterNo'
+    })
+    .then(function (response) {
+      console.log(response)
+    })
+    .catch(function (response) {
+      console.log(response)
+    })
+  }
+
   render () {
     return (
       <Grid>
@@ -83,6 +96,7 @@ export default class Screening extends React.Component {
           <Modal.Body>
             <h4>Results</h4>
             <p>{this.state.score}</p>
+            <Button onClick={this.sendMessage}>Set Reminder</Button>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.toggleModal}>Close</Button>

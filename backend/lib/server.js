@@ -25,7 +25,7 @@ const MessageBird = {
       recipients: [
       '00447590490239'
       ],
-      body: 'Bazinga!!'
+      body: 'Hi Helen, remember to check up on Billy today'
     }
     setTimeout(message, 30000)
     function message() {
