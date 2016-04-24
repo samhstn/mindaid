@@ -8,10 +8,14 @@ export default class Screening extends React.Component {
     super()
     this.state = {
       status: 'Offline',
-      showViewModal: false,
-      showEditModal: false
+      showModal: false,
+      score: 0
     }
     this.changeStatus = this.changeStatus.bind(this)
+    this.classTally = this.classTally.bind(this)
+    this.totalTally = this.totalTally.bind(this)
+    this.toggleModal = this.toggleModal.bind(this)
+    this.clickHandler = this.clickHandler.bind(this)
   }
 
   changeStatus (newStatus) {
@@ -20,9 +24,14 @@ export default class Screening extends React.Component {
     })
   }
 
-  toggleModal (typeOfModal) {
+  clickHandler () {
+    this.totalTally()
+    this.toggleModal()
+  }
+
+  toggleModal () {
     const newState = {}
-    newState[typeOfModal] = !this.state[typeOfModal]
+    newState['showModal'] = !this.state['showModal']
     this.setState(newState)
   }
 
@@ -39,8 +48,10 @@ export default class Screening extends React.Component {
     this.classTally('notTrue')
     this.classTally('somewhatTrue')
     this.classTally('certainlyTrue')
-    this.open()
-    return this.classTally('notTrue', 1) + this.classTally('somewhatTrue', 2) + this.classTally('certainlyTrue', 3)
+    this.setState({
+      score: this.classTally('notTrue', 1) + this.classTally('somewhatTrue', 2) + this.classTally('certainlyTrue', 3)
+    })
+    console.log(this.state.score);
   }
 
   render () {
@@ -62,32 +73,19 @@ export default class Screening extends React.Component {
         </Row>
         <div>{this.props.questions.map((n,i) => <Question question={n} name={i} key={i} />)}</div>
         <Row>
-          <Button onClick={this.totalTally}>Submit</Button>
+          <Button onClick={this.clickHandler}>Submit</Button>
         </Row>
-        <Modal show={this.state.showViewModal}
+        <Modal show={this.state.showModal}
         onHide={this.toggleModal.bind(this, 'showViewModal')}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal</h4>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-
-            <hr />
-
-            <h4>Overflowing text to show scroll behavior</h4>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <h4>Results</h4>
+            <p>{this.state.score}</p>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.toggleModal.bind(this, 'showEditModal')}>Close</Button>
+            <Button onClick={this.toggleModal}>Close</Button>
           </Modal.Footer>
         </Modal>
       </Grid>
@@ -105,5 +103,6 @@ Screening.defaultProps = {
     'Rather solitary, tends to play alone',
     'Generally obedient, usually does what adults request',
     'Many worries, often seems worried'
-  ]
+  ],
+  result: 0
 }
