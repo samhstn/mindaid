@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router'
 
 const styles = {
@@ -57,7 +57,6 @@ export default (props) => {
               </div>
             </div>
           </Link>
-
         </Col>
       </Row>
     </Grid>
