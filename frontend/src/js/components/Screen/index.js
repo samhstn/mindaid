@@ -3,7 +3,7 @@ import {OverlayTrigger, Modal, Row, Col, Grid, Button} from 'react-bootstrap'
 import Question from './Question.js'
 import axios from 'axios'
 
-export default class Screening extends React.Component {
+export default class Screen extends React.Component {
 
   constructor() {
     super()
@@ -107,7 +107,7 @@ export default class Screening extends React.Component {
   }
 }
 
-Screening.defaultProps = {
+Screen.defaultProps = {
   questions: [
     "Considerate of other people's feelings",
     'Restless, overactive, cannot stay still for long',
