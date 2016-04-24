@@ -11,21 +11,26 @@ export default (props) => {
       <Row>
         <Col xs={12}>
           <h3>Listen</h3>
-          <ul style={{textAlign: 'left'}}><li>
-          <strong>L</strong>isten nonjudgmentally and empathically
-          </li><li>
-          gather <strong>I</strong>nformation, ask open questions, don't push
-          </li><li>
-          assess people's risk of harm, <strong>S</strong>elf-harm or <strong>S</strong>uicide
-          </li><li>
-          <strong>T</strong>ell them useful information about their problem, reassure
-          </li><li>
-          <strong>E</strong>ncourage self-help and other support strategies
-          </li><li>
-          <strong>N</strong>ot alone, follow up and direct to appropriate professional help
-          </li></ul>
-          <h4>Conversation Starters</h4>
-          <ul style={{'list-style-type': 'none'}}><li>
+          <Col xs={8} xsOffset={2}>
+            <ul style={{textAlign: 'left', listStyleType: 'none', margin: 'auto'}}><li>
+            <span style={{fontSize: '200%'}}>L</span>isten nonjudgmentally and empathically gather
+            </li><li>
+            <span style={{fontSize: '200%'}}>I</span>nformation, ask open questions, don't push assess people's risk of harm,
+            </li><li>
+            <span style={{fontSize: '200%'}}>S</span>elf-harm or Suicide
+            </li><li>
+            <span style={{fontSize: '200%'}}>T</span>ell them useful information about their problem, reassure
+            </li><li>
+            <span style={{fontSize: '200%'}}>E</span>ncourage self-help and other support strategies
+            </li><li>
+            <span style={{fontSize: '200%'}}>N</span>ot alone, follow up and direct to appropriate professional help
+            </li></ul>
+          </Col>
+        </Col>
+        </Row>
+        <Row>
+            <h3>Conversation Starters</h3>
+            <ul style={{'list-style-type': 'none'}}><li>
           Can you tell me a bit more about what happened?
           </li><li>
           How were you feeling at the time?
@@ -56,7 +61,6 @@ export default (props) => {
           we book an appointment for you to talk to your personal advisor/the
           school counsellor/me again?
           </li></ul>
-        </Col>
       </Row>
     </Grid>
   )
