@@ -95,26 +95,25 @@ export default class Screen extends React.Component {
           <Modal.Header closeButton>
             <Modal.Title>Screening Results</Modal.Title>
           </Modal.Header>
+          <Grid>
           <Modal.Body>
           <Col sm={4}>
-            <h4 >Score: {this.state.score}</h4>
+            <h4>Score: {this.state.score + '/' + this.props.questions.length * 3}</h4>
+            {this.state.score >= 20 ?
+              <p style={{color: "#d9534f"}}>High</p> : this.state.score < 20 && this.state.score >= 10 ?
+              <p style={{color: "#f0ad4e"}}>Borderline</p>  : <p style={{color: "#5cb85c"}}>Low</p>
+            }
           </Col>
             {this.state.score >= 20 ?
-            <div>
-              <Col sm={4}>
-                <p style={{color: "#d9534f"}}>High Risk</p>
-              </Col>
               <Col sm={8}>
                 <h4>Referal resources</h4>
-                <a style={{display: 'block'}}href='http://www.youngminds.org.uk/'>Young Minds Mental Health Services</a>
-                <a href='http://www.centreformentalhealth.org.uk/crisis-contacts'>Center for Mental Health</a>
+                <a style={{display: 'block'}}href='http://www.youngminds.org.uk/'>Discuss with Primary Mental Health Worker</a>
+                <a href='http://www.centreformentalhealth.org.uk/crisis-contacts'>Referral to CAHMS</a>
               </Col>
-            </div>
-            : this.state.score < 20 && this.state.score >= 10 ?
-              <p style={{color: "#f0ad4e"}}>Medium Risk</p>  : <p style={{color: "#5cb85c"}}>Low Risk</p>
-            }
+            : <div></div>}
             <Button onClick={this.sendMessage}>Set Reminder</Button>
           </Modal.Body>
+          </Grid>
           <Modal.Footer>
             <Button onClick={this.toggleModal}>Close</Button>
           </Modal.Footer>
