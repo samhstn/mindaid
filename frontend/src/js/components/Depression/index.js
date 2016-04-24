@@ -27,6 +27,9 @@ export default (props) => {
             <li>Encouraging children to restart small enjoyable activities and encouraging them to talk to people they trust about their feelings is a good first step.</li>
           </ol>
         </Col>
+        <Col xs={4} xsOffset={4}>
+            <a href='https://www.minded.org.uk/course/view.php?id=81'><h4 style={{textAlign: 'center'}}>Link to MindEd</h4></a>
+        </Col>
       </Row>
     </Grid>
   )
