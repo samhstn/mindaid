@@ -1,13 +1,29 @@
 import React from 'react'
-import {Row, Col, Grid, Button} from 'react-bootstrap'
+import {OverlayTrigger, Modal, Row, Col, Grid, Button} from 'react-bootstrap'
 import Question from './Question.js'
 
 export default class Screening extends React.Component {
 
   constructor() {
     super()
-    this.classTally = this.classTally.bind(this)
-    this.totalTally = this.totalTally.bind(this)
+    this.state = {
+      status: 'Offline',
+      showViewModal: false,
+      showEditModal: false
+    }
+    this.changeStatus = this.changeStatus.bind(this)
+  }
+
+  changeStatus (newStatus) {
+    this.setState({
+      status: newStatus
+    })
+  }
+
+  toggleModal (typeOfModal) {
+    const newState = {}
+    newState[typeOfModal] = !this.state[typeOfModal]
+    this.setState(newState)
   }
 
   classTally (classname) {
@@ -24,6 +40,7 @@ export default class Screening extends React.Component {
     this.classTally('notTrue')
     this.classTally('somewhatTrue')
     this.classTally('certainlyTrue')
+    this.open()
   }
 
   render () {
@@ -47,6 +64,32 @@ export default class Screening extends React.Component {
         <Row>
           <Button onClick={this.totalTally}>Submit</Button>
         </Row>
+        <Modal show={this.state.showViewModal}
+        onHide={this.toggleModal.bind(this, 'showViewModal')}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Text in a modal</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+            <hr />
+
+            <h4>Overflowing text to show scroll behavior</h4>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.toggleModal.bind(this, 'showEditModal')}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </Grid>
     )
   }
