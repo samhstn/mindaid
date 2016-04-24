@@ -1,6 +1,7 @@
 import React from 'react'
-import {OverlayTrigger, Modal, Row, Col, Grid, Button} from 'react-bootstrap'
+import {Link, Modal, Row, Col, Grid, Button} from 'react-bootstrap'
 import Question from './Question.js'
+import axios from 'axios'
 
 export default class Screening extends React.Component {
 
@@ -54,21 +55,33 @@ export default class Screening extends React.Component {
     console.log(this.state.score);
   }
 
+  sendMessage () {
+  	axios.post('/sendText', {
+      recipient: '00447enterNo'
+    })
+    .then(function (response) {
+      console.log(response)
+    })
+    .catch(function (response) {
+      console.log(response)
+    })
+  }
+
   render () {
     return (
       <Grid>
         <Row>
-          <Col md={6}>
+          <Col md={6} sm={6} xs={6}>
             <h3>Question</h3>
           </Col>
-          <Col md={2}>
-            <h4>Not true</h4>
+          <Col md={2} sm={2} xs={2}>
+            <h5>Not true</h5>
           </Col>
-          <Col md={2}>
-            <h4>Somewhat true</h4>
+          <Col md={2} sm={2} xs={2}>
+            <h5>Somewhat true</h5>
           </Col>
-          <Col md={2}>
-            <h4>Certainly true</h4>
+          <Col md={2} sm={2} xs={2}>
+            <h5>Certainly true</h5>
           </Col>
         </Row>
         <div>{this.props.questions.map((n,i) => <Question question={n} name={i} key={i} />)}</div>
@@ -78,14 +91,27 @@ export default class Screening extends React.Component {
         <Modal show={this.state.showModal}
         onHide={this.toggleModal.bind(this, 'showViewModal')}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Screening Results</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Results</h4>
-            <p>{this.state.score}</p>
-            {this.state.score >= 20 ? <p style={{color: "#d9534f"}}>High Risk</p> : this.state.score < 20 && this.state.score >= 10 ?
+          <Col sm={4}>
+            <h4 >Score: {this.state.score}</h4>
+          </Col>
+            {this.state.score >= 20 ?
+            <div>
+              <Col sm={4}>
+                <p style={{color: "#d9534f"}}>High Risk</p>
+              </Col>
+              <Col sm={8}>
+                <h4>Referal resources</h4>
+                <a style={{display: 'block'}}href='http://www.youngminds.org.uk/'>Young Minds Mental Health Services</a>
+                <a href='http://www.centreformentalhealth.org.uk/crisis-contacts'>Center for Mental Health</a>
+              </Col>
+            </div>
+            : this.state.score < 20 && this.state.score >= 10 ?
               <p style={{color: "#f0ad4e"}}>Medium Risk</p>  : <p style={{color: "#5cb85c"}}>Low Risk</p>
             }
+            <Button onClick={this.sendMessage}>Set Reminder</Button>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.toggleModal}>Close</Button>
