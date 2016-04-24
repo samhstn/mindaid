@@ -5,8 +5,8 @@ import Footer from './Footer/index.js'
 import '../../scss/style.scss'
 
 const options = {
-  menuItems: ['Go back'],
-  logoUrl: 'img/rhino.png'
+  menuItems: ['about', 'contact'],
+  logoUrl: 'img/mindAidlogo.png'
 }
 
 export default class App extends React.Component {
