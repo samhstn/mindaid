@@ -83,6 +83,9 @@ export default class Screening extends React.Component {
           <Modal.Body>
             <h4>Results</h4>
             <p>{this.state.score}</p>
+            {this.state.score >= 20 ? <p style={{color: "#d9534f"}}>High Risk</p> : this.state.score < 20 && this.state.score >= 10 ?
+              <p style={{color: "#f0ad4e"}}>Medium Risk</p>  : <p style={{color: "#5cb85c"}}>Low Risk</p>
+            }
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.toggleModal}>Close</Button>
