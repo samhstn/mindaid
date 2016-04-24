@@ -6,7 +6,7 @@ export default (props) => {
     <Navbar className='footer'>
       <Navbar.Header>
         <Navbar.Brand>
-          <a><img src={props.logoUrl}></img></a>
+          <a><img src={props.logoUrl} style={{height: '250%', width: 'auto'}}></img></a>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav pullRight>
