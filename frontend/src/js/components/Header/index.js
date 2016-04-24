@@ -23,14 +23,14 @@ export default class Header extends React.Component {
         <Navbar.Header>
           <Navbar.Brand>
             <Link to={'/'}>
-              <img src={this.props.logoUrl} style={{height: '100%', width: 'auto'}}></img>
+              <img src={this.props.logoUrl} style={{height: '100%', width: 'auto', marginTop: '0px'}}></img>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse pullRight>
           <Nav pullRight>
-            <li onClick={this.goBack}>Go Back</li>
+            <li style={{color: '#d8e9ef'}}onClick={this.goBack}>Go Back</li>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
