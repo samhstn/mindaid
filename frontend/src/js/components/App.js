@@ -5,7 +5,7 @@ import Footer from './Footer/index.js'
 import '../../scss/style.scss'
 
 const options = {
-  menuItems: ['about', 'contact'],
+  menuItems: ['Go back'],
   logoUrl: 'img/rhino.png'
 }
 
