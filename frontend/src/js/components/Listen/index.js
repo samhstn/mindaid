@@ -15,17 +15,17 @@ export default (props) => {
           <Col xs={12} md={10} mdOffset={2}>
           <h3 style={styles.h3}>Listen</h3>
             <ul style={{textAlign: 'left', listStyleType: 'none', margin: 'auto'}}><li>
-            <span style={{fontSize: '200%'}}>L</span>isten nonjudgmentally and empathically gather
+            <span style={{fontSize: '200%'}}>L </span> listen nonjudgmentally and empathically gather
             </li><li>
-            <span style={{fontSize: '200%'}}>I</span>nformation, ask open questions, don't push assess people's risk of harm,
+            <span style={{fontSize: '200%'}}>I </span> gather Information, ask open questions, don't push
             </li><li>
-            <span style={{fontSize: '200%'}}>S</span>elf-harm or Suicide
+            <span style={{fontSize: '200%'}}>S </span> assess people's risk of harm, Self-harm or Suicide
             </li><li>
-            <span style={{fontSize: '200%'}}>T</span>ell them useful information about their problem, reassure
+            <span style={{fontSize: '200%'}}>T </span> tell them useful information about their problem, reassure
             </li><li>
-            <span style={{fontSize: '200%'}}>E</span>ncourage self-help and other support strategies
+            <span style={{fontSize: '200%'}}>E </span> encouraging self-help and other support strategies
             </li><li>
-            <span style={{fontSize: '200%'}}>N</span>ot alone, follow up and direct to appropriate professional help
+            <span style={{fontSize: '200%'}}>N </span> not alone, follow up and direct to appropriate professional help
             </li></ul>
           </Col>
         </Row>
