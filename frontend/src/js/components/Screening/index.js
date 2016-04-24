@@ -1,13 +1,38 @@
 import React from 'react'
-import {Row, Col, Grid, Button} from 'react-bootstrap'
+import {OverlayTrigger, Modal, Row, Col, Grid, Button} from 'react-bootstrap'
 import Question from './Question.js'
 
 export default class Screening extends React.Component {
 
   constructor() {
     super()
+    this.state = {
+      status: 'Offline',
+      showModal: false,
+      score: 0
+    }
+    this.changeStatus = this.changeStatus.bind(this)
     this.classTally = this.classTally.bind(this)
     this.totalTally = this.totalTally.bind(this)
+    this.toggleModal = this.toggleModal.bind(this)
+    this.clickHandler = this.clickHandler.bind(this)
+  }
+
+  changeStatus (newStatus) {
+    this.setState({
+      status: newStatus
+    })
+  }
+
+  clickHandler () {
+    this.totalTally()
+    this.toggleModal()
+  }
+
+  toggleModal () {
+    const newState = {}
+    newState['showModal'] = !this.state['showModal']
+    this.setState(newState)
   }
 
   classTally (classname, n) {
@@ -20,7 +45,13 @@ export default class Screening extends React.Component {
   }
 
   totalTally () {
-    return this.classTally('notTrue', 1) + this.classTally('somewhatTrue', 2) + this.classTally('certainlyTrue', 3)
+    this.classTally('notTrue')
+    this.classTally('somewhatTrue')
+    this.classTally('certainlyTrue')
+    this.setState({
+      score: this.classTally('notTrue', 1) + this.classTally('somewhatTrue', 2) + this.classTally('certainlyTrue', 3)
+    })
+    console.log(this.state.score);
   }
 
   render () {
@@ -42,8 +73,21 @@ export default class Screening extends React.Component {
         </Row>
         <div>{this.props.questions.map((n,i) => <Question question={n} name={i} key={i} />)}</div>
         <Row>
-          <Button onClick={this.totalTally}>Submit</Button>
+          <Button onClick={this.clickHandler}>Submit</Button>
         </Row>
+        <Modal show={this.state.showModal}
+        onHide={this.toggleModal.bind(this, 'showViewModal')}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Results</h4>
+            <p>{this.state.score}</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.toggleModal}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </Grid>
     )
   }
@@ -59,5 +103,6 @@ Screening.defaultProps = {
     'Rather solitary, tends to play alone',
     'Generally obedient, usually does what adults request',
     'Many worries, often seems worried'
-  ]
+  ],
+  result: 0
 }
