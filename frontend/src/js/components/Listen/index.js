@@ -11,8 +11,7 @@ export default (props) => {
       <Row>
         <Col xs={12}>
           <h3>Listen</h3>
-          <Col xs={2} />
-          <Col xs={8}>
+          <Col xs={8} xsOffset={2}>
             <ul style={{textAlign: 'left', listStyleType: 'none', margin: 'auto'}}><li>
             <span style={{fontSize: '200%'}}>L</span>isten nonjudgmentally and empathically gather
             </li><li>
