@@ -1,10 +1,32 @@
 import React from 'react'
-import {Row, Col, Grid} from 'react-bootstrap'
+import {Row, Col, Grid, Button} from 'react-bootstrap'
 import Question from './Question.js'
 
 export default class Screening extends React.Component {
+
+  constructor() {
+    super()
+    this.classTally = this.classTally.bind(this)
+    this.totalTally = this.totalTally.bind(this)
+  }
+
+  classTally (classname) {
+    let counter = 0
+    const arr = document.getElementsByClassName(classname)
+    for(let i=0; i< arr.length; i++){
+      if(arr[i].checked === true){counter++}
+    }
+    console.log(counter)
+    return counter
+  }
+
+  totalTally () {
+    this.classTally('notTrue')
+    this.classTally('somewhatTrue')
+    this.classTally('certainlyTrue')
+  }
+
   render () {
-    console.log(this.props.questions)
     return (
       <Grid>
         <Row>
@@ -21,11 +43,13 @@ export default class Screening extends React.Component {
             <h4>Certainly true</h4>
           </Col>
         </Row>
-        <div>{this.props.questions.map((n,i) => <Question question={n} name={i}/>)}</div>
+        <div>{this.props.questions.map((n,i) => <Question question={n} name={i} key={i} />)}</div>
+        <Row>
+          <Button onClick={this.totalTally}>Submit</Button>
+        </Row>
       </Grid>
     )
   }
-
 }
 
 Screening.defaultProps = {
