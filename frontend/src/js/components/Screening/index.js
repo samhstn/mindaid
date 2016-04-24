@@ -10,20 +10,17 @@ export default class Screening extends React.Component {
     this.totalTally = this.totalTally.bind(this)
   }
 
-  classTally (classname) {
+  classTally (classname, n) {
     let counter = 0
     const arr = document.getElementsByClassName(classname)
     for(let i=0; i< arr.length; i++){
       if(arr[i].checked === true){counter++}
     }
-    console.log(counter)
-    return counter
+    return counter * n
   }
 
   totalTally () {
-    this.classTally('notTrue')
-    this.classTally('somewhatTrue')
-    this.classTally('certainlyTrue')
+    return this.classTally('notTrue', 1) + this.classTally('somewhatTrue', 2) + this.classTally('certainlyTrue', 3)
   }
 
   render () {
