@@ -2,16 +2,18 @@ import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 const styles = {
-  textAlign: 'center',
+  h3: {
+    textAlign: 'left'
+  }
 }
 
 export default (props) => {
   return (
-    <Grid style={styles}>
+    <Grid>
       <Row>
-        <Col xs={12}>
-          <h3>Listen</h3>
-          <Col xs={8} xsOffset={2}>
+
+          <Col xs={12} md={10} mdOffset={2}>
+          <h3 style={styles.h3}>Listen</h3>
             <ul style={{textAlign: 'left', listStyleType: 'none', margin: 'auto'}}><li>
             <span style={{fontSize: '200%'}}>L</span>isten nonjudgmentally and empathically gather
             </li><li>
@@ -26,11 +28,13 @@ export default (props) => {
             <span style={{fontSize: '200%'}}>N</span>ot alone, follow up and direct to appropriate professional help
             </li></ul>
           </Col>
-        </Col>
         </Row>
+
         <Row>
-            <h3>Conversation Starters</h3>
-            <ul style={{'list-style-type': 'none'}}><li>
+
+        <Col xs={12} md={10} mdOffset={2}>
+        <h3 style={styles.h3}>Conversation Starters</h3>
+          <ul style={{'list-style-type': 'none'}}><li>
           Can you tell me a bit more about what happened?
           </li><li>
           How were you feeling at the time?
@@ -61,7 +65,9 @@ export default (props) => {
           we book an appointment for you to talk to your personal advisor/the
           school counsellor/me again?
           </li></ul>
+          </Col>
       </Row>
+
     </Grid>
   )
 }
