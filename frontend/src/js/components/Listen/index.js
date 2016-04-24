@@ -24,22 +24,38 @@ export default (props) => {
           </li><li>
           <strong>N</strong>ot alone, follow up and direct to appropriate professional help
           </li></ul>
-          <h4>Helpful Questions</h4>
-          <p>
-          Can you tell me a bit more about what happened? How were you feeling at
-          the time? How are you feeling about it now? What was going through your
-          mind? Where is this happening? When things are at the worst they have
-          been tell me how you were feeling? Are there any other things stressing
-          you out at the moment? How are things at home?
-          </p><p>
-          Is there any thing that helps when you are feeling like this? Is there
-          anyone you are close to who you can talk to about this? This is
-          something people often go through – would you like some more
-          information about it? Would you like to talk about this again? This
-          sounds really important and something you need help with shall we book
-          an appointment for you to talk to your personal advisor/the school
-          counsellor/me again?
-          </p>
+          <h4>Conversation Starters</h4>
+          <ul style={{'list-style-type': 'none'}}><li>
+          Can you tell me a bit more about what happened?
+          </li><li>
+          How were you feeling at the time?
+          </li><li>
+          How are you feeling about it now?
+          </li><li>
+          What was going through your mind?
+          </li><li>
+          Where is this happening?
+          </li><li>
+          When things are at the worst they have been tell me how you were feeling?
+          </li><li>
+          Are there any other things stressing you out at the moment?
+          </li><li>
+          How are things at home?
+          </li></ul>
+          <ul style={{'list-style-type': 'none'}}><li>
+          Is there any thing that helps when you are feeling like this?
+          </li><li>
+          Is there anyone you are close to who you can talk to about this?
+          </li><li>
+          This is something people often go through; would you like some more
+          information about it?
+          </li><li>
+          Would you like to talk about this again?
+          </li><li>
+          This sounds really important and something you need help with, shall
+          we book an appointment for you to talk to your personal advisor/the
+          school counsellor/me again?
+          </li></ul>
         </Col>
       </Row>
     </Grid>
