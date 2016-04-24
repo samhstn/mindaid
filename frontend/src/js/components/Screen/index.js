@@ -86,7 +86,9 @@ export default class Screen extends React.Component {
         </Row>
         <div>{this.props.questions.map((n,i) => <Question question={n} name={i} key={i} />)}</div>
         <Row>
-          <Button onClick={this.clickHandler}>Submit</Button>
+          <Col md={12}>
+            <Button style={{marginTop: '20px'}} onClick={this.clickHandler}>Submit</Button>
+          </Col>
         </Row>
         <Modal show={this.state.showModal}
         onHide={this.toggleModal.bind(this, 'showViewModal')}>
