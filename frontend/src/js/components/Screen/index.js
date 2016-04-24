@@ -95,8 +95,7 @@ export default class Screen extends React.Component {
           <Modal.Header closeButton>
             <Modal.Title>Screening Results</Modal.Title>
           </Modal.Header>
-          <Grid>
-          <Modal.Body>
+          <Modal.Body style={{marginBottom: '5%'}}>
           <Col sm={4}>
             <h4>Score: {this.state.score + '/' + this.props.questions.length * 3}</h4>
             {this.state.score >= 20 ?
@@ -113,7 +112,6 @@ export default class Screen extends React.Component {
             : <div></div>}
             <Button onClick={this.sendMessage}>Set Reminder</Button>
           </Modal.Body>
-          </Grid>
           <Modal.Footer>
             <Button onClick={this.toggleModal}>Close</Button>
           </Modal.Footer>
