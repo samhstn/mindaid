@@ -17,7 +17,7 @@ export default (props) => {
           <Link to="anxiety">
             <div className="panel panel-default">
               <div className="panel-heading">
-                10 Things To Know About Anxiety
+                The Worried Child
               </div>
               <div className="panel-body">
                 Ten things you should know about anxiety to help you help your students
@@ -28,7 +28,7 @@ export default (props) => {
           <Link to="behaviour">
             <div className="panel panel-default">
               <div className="panel-heading">
-                10 Things To Know About Behaviour
+                The Aggressive/Difficult Child
               </div>
               <div className="panel-body">
                 Ten things you should know about behaviour to help you help your students
@@ -39,7 +39,7 @@ export default (props) => {
           <Link to="depression">
             <div className="panel panel-default">
               <div className="panel-heading">
-                10 Things To Know About Depression
+                Sad and Isolated Child
               </div>
               <div className="panel-body">
                 Ten things you should know about depression to help you help your students
@@ -50,7 +50,7 @@ export default (props) => {
           <Link to="self-harm">
             <div className="panel panel-default">
               <div className="panel-heading">
-                10 Things To Know About Self Harm
+                Self-harm and Risky Behaviour
               </div>
               <div className="panel-body">
                 Ten things you should know about self harm to help you help your students
