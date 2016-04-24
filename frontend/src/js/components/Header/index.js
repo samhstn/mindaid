@@ -6,6 +6,11 @@ export default class Header extends React.Component {
   constructor () {
     super()
     this.state = { menuOpen: false }
+    this.goBack = this.goBack.bind(this)
+  }
+
+  goBack() {
+    window.history.back()
   }
 
   render () {
@@ -18,22 +23,14 @@ export default class Header extends React.Component {
         <Navbar.Header>
           <Navbar.Brand>
             <Link to={'/'}>
-              <img src={this.props.logoUrl}></img>
+              <img src={this.props.logoUrl} style={{height: '100%', width: 'auto'}}></img>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse pullRight>
           <Nav pullRight>
-            {this.props.menuItems.map(item => {
-              return (
-                <li onClick={() => { this.setState({ menuOpen: false }) }}
-                    role='presentation'
-                    key={item + '-li'}>
-                  <Link key={item} to={'/' + item}>{item}</Link>
-                </li>
-              )
-            })}
+            <li onClick={this.goBack}>Go Back</li>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
